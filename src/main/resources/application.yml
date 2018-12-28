@@ -15,12 +15,36 @@ spring:
   jpa: #JPA-config
     hibernate:
       ddl-auto: update
-mybatis:
+  freemarker:
+    cache: false #设置页面缓存，默认开启
+    suffix: .ftl #设置模板后缀名
+    enabled: true #设置是否启用当前模板
+    content-type: text/html #设置文档类型
+    request-context-attribute: request
+    template-loader-path: classpath:/templates/ #设置模板文件加载路径
+    charset: UTF-8 #设置模板文件编码格式
+    expose-request-attributes: true #暴露request属性，默认false
+    expose-session-attributes: true #暴露session属性，默认false
+  thymeleaf:
+    cache: false #设置页面缓存，默认开启
+    encoding: UTF-8 #设置模板页面编码格式
+    enabled: false #设置关闭当前模板
+    mode: HTML #设置模板文件模式
+    prefix: classpath:/templates/ #设置模板文件前缀
+    suffix: .html #设置模板文件后缀
+    servlet:
+      content-type: text/html #设置文档类型
+
+mybatis: #mybatis-config
   mapper-locations: classpath*:/repository/*.xml
   type-handlers-package: com.dh.springbootintegration.mybatis.handler
   type-aliases-package: com.dh.springbootintegration.mybatis.entity
-mybatis-plus:
+mybatis-plus: #mybatis-plus-config
   mapper-locations: classpath*:/repository/*.xml
   type-aliases-package: com.dh.springbootintegration.mybatisplus.entity,com.dh.springbootintegration.mybatis.entity
   type-aliases-super-type: java.lang.Object
   type-enums-package: com.dh.springbootintegration.mybatisplus.enums
+  global-config:
+      db-config: #设置逻辑删除
+        logic-delete-value: 1
+        logic-not-delete-value: 0
