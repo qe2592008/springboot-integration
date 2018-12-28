@@ -1,0 +1,1 @@
+整合H2数据库，JPA持久层，Hibernate
