@@ -48,3 +48,7 @@ mybatis-plus: #mybatis-plus-config
       db-config: #设置逻辑删除
         logic-delete-value: 1
         logic-not-delete-value: 0
+# 很重要的一个属性，在Nginx分发的时候，可以设置如果location为该值的请求一律分发到某个服务器
+server:
+  servlet:
+    context-path: /springboot-integration
